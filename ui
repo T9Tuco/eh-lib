@@ -2650,4 +2650,102 @@ function Kavo.CreateLib(kavName, themeList)
     end  
     return Tabs
 end
+
+local function CreateModernUI()
+    local ScreenGui = Instance.new("ScreenGui")
+    local MainFrame = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local Shadow = Instance.new("ImageLabel")
+    local Header = Instance.new("Frame")
+    local HeaderUICorner = Instance.new("UICorner")
+    local Title = Instance.new("TextLabel")
+    local CloseButton = Instance.new("TextButton")
+    local ContentFrame = Instance.new("Frame")
+    local ContentUICorner = Instance.new("UICorner")
+
+    -- ScreenGui
+    ScreenGui.Name = "ModernUI"
+    ScreenGui.Parent = game.CoreGui
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.ResetOnSpawn = false
+
+    -- MainFrame
+    MainFrame.Name = "MainFrame"
+    MainFrame.Parent = ScreenGui
+    MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    MainFrame.Position = UDim2.new(0.5, -250, 0.5, -200)
+    MainFrame.Size = UDim2.new(0, 500, 0, 400)
+
+    -- UICorner for MainFrame
+    UICorner.CornerRadius = UDim.new(0, 10)
+    UICorner.Parent = MainFrame
+
+    -- Shadow
+    Shadow.Name = "Shadow"
+    Shadow.Parent = MainFrame
+    Shadow.BackgroundTransparency = 1
+    Shadow.Image = "rbxassetid://1316045217"
+    Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Shadow.ImageTransparency = 0.5
+    Shadow.ScaleType = Enum.ScaleType.Slice
+    Shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+    Shadow.Size = UDim2.new(1, 20, 1, 20)
+    Shadow.Position = UDim2.new(0, -10, 0, -10)
+
+    -- Header
+    Header.Name = "Header"
+    Header.Parent = MainFrame
+    Header.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    Header.Size = UDim2.new(1, 0, 0, 50)
+
+    -- UICorner for Header
+    HeaderUICorner.CornerRadius = UDim.new(0, 10)
+    HeaderUICorner.Parent = Header
+
+    -- Title
+    Title.Name = "Title"
+    Title.Parent = Header
+    Title.BackgroundTransparency = 1
+    Title.Size = UDim2.new(1, -50, 1, 0)
+    Title.Font = Enum.Font.GothamBold
+    Title.Text = "Raven by TucoT9"
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.TextSize = 20
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.Position = UDim2.new(0, 10, 0, 0)
+
+    -- CloseButton
+    CloseButton.Name = "CloseButton"
+    CloseButton.Parent = Header
+    CloseButton.BackgroundColor3 = Color3.fromRGB(255, 85, 85)
+    CloseButton.Size = UDim2.new(0, 40, 0, 40)
+    CloseButton.Position = UDim2.new(1, -45, 0.5, -20)
+    CloseButton.Font = Enum.Font.GothamBold
+    CloseButton.Text = "X"
+    CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    CloseButton.TextSize = 18
+    CloseButton.AutoButtonColor = false
+
+    -- ContentFrame
+    ContentFrame.Name = "ContentFrame"
+    ContentFrame.Parent = MainFrame
+    ContentFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    ContentFrame.Position = UDim2.new(0, 0, 0, 50)
+    ContentFrame.Size = UDim2.new(1, 0, 1, -50)
+
+    -- UICorner for ContentFrame
+    ContentUICorner.CornerRadius = UDim.new(0, 10)
+    ContentUICorner.Parent = ContentFrame
+
+    -- CloseButton Functionality
+    CloseButton.MouseButton1Click:Connect(function()
+        ScreenGui:Destroy()
+    end)
+
+    return ScreenGui
+end
+
+-- Call the function to create the UI
+CreateModernUI()
+
 return Kavo
